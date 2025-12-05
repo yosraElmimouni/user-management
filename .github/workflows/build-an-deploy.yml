@@ -62,7 +62,8 @@ jobs:
         # Push Docker image to DockerHub or other container registry
       - name: Log in to DockerHub
         shell: powershell
-        
+        run: |
+
       - name: Push Docker image
         run: |
           docker push carikk/quality-gate:latest
