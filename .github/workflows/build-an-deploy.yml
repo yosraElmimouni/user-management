@@ -57,7 +57,7 @@ jobs:
         # Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t carikk/quality-gate:latest .
+          docker build -t yosra875/quality-gate:latest .
 
         # Push Docker image to DockerHub or other container registry
       - name: Log in to DockerHub
@@ -68,7 +68,7 @@ jobs:
           
       - name: Push Docker image
         run: |
-          docker push carikk/quality-gate:latest
+          docker push yosra875/quality-gate:latest
 
 
       # Set up kubeconfig from secret
