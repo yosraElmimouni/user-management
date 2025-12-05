@@ -30,3 +30,6 @@ build/
 
 ### VS Code ###
 .vscode/
+actions-runner/
+_work/
+_diag/
