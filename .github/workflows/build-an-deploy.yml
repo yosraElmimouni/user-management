@@ -70,21 +70,21 @@ jobs:
         run: |
           New-Item -ItemType Directory -Force -Path $env:USERPROFILE\.kube
           echo "${{ secrets.KUBECONFIG_CONTENT }}" > $env:USERPROFILE\.kube\config
-          kubectl config set-context --current --namespace=ensakh
 
-      - name: Verify Kubernetes context
+      - name: Verify Kubernetes
         shell: powershell
         run: |
           kubectl config current-context
+          kubectl get nodes
           kubectl get namespaces
 
-
-
-      - name: Deploy to kube
+      - name: Deploy to Kubernetes
         shell: powershell
         run: |
           kubectl apply -f k8s/deployment.yaml
+          kubectl rollout status deployment/user-management
           kubectl get pods -A
+
 
 
       - name: Verify Kubernetes context
