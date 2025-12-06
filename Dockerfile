@@ -6,7 +6,7 @@ FROM eclipse-temurin:21-jdk-jammy
 WORKDIR /app
 
 # Copier le fichier jar généré dans le conteneur Docker
-COPY target/user-management.jar app.jar
+COPY target/user-management-0.0.1-SNAPSHOT.jar app.jar
 
 # Exposer le port sur lequel l'application sera disponible
 EXPOSE 8080
