@@ -65,23 +65,27 @@ jobs:
           docker push yosra875/quality-gate:latest
 
 
-      # Set up kubeconfig from secret
       - name: Set up kubeconfig
+        shell: powershell
         run: |
-          mkdir -p $HOME/.kube
-          echo "${{ secrets.KUBECONFIG_CONTENT }}" > $HOME/.kube/config
+          New-Item -ItemType Directory -Force -Path $env:USERPROFILE\.kube
+          echo "${{ secrets.KUBECONFIG_CONTENT }}" > $env:USERPROFILE\.kube\config
           kubectl config set-context --current --namespace=ensakh
 
-      # Verify Kubernetes context
       - name: Verify Kubernetes context
+        shell: powershell
         run: |
           kubectl config current-context
           kubectl get namespaces
 
 
+
       - name: Deploy to kube
+        shell: powershell
         run: |
           kubectl apply -f k8s/deployment.yaml
+          kubectl get pods -A
+
 
       - name: Verify Kubernetes context
         run: |
