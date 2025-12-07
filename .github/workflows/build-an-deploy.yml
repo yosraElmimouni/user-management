@@ -12,7 +12,6 @@ jobs:
 
     steps:
 
-      # Checkout code
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
@@ -77,6 +76,7 @@ jobs:
           kubectl config current-context
           kubectl get nodes
           kubectl get namespaces
+
 
       - name: Deploy to Kubernetes
         shell: powershell
