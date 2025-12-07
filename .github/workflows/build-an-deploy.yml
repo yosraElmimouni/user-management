@@ -52,6 +52,7 @@ jobs:
             "-Dsonar.host.url=http://localhost:9000" `
             "-Dsonar.login=${{ secrets.SONAR_TOKEN }}"
 
+
         # Build Docker image
       - name: Build Docker image
         run: |
